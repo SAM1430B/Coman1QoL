@@ -1,0 +1,39 @@
+# Build output (Visual Studio, CMake, build.sh)
+build/
+out/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+Debug/
+Release/
+*.obj
+*.o
+*.pdb
+*.ilk
+*.exp
+*.iobj
+*.ipdb
+*.tlog
+
+# Editor / IDE files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.aps
+
+# Python (tools/)
+__pycache__/
+*.pyc
+
+# OS files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Logs (c1m.log from testing)
+*.log
+
+# dist/c1m.ini is the settings file shipped with the DLLs (tracked).
+!dist/c1m.ini
