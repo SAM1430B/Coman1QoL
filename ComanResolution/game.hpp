@@ -81,6 +81,10 @@ struct Target {
     // frame present, thiscall(), which shows the frame and the cursor.
     HookSite cursor_redraw{};
     HookSite present{};
+    // BCD only: the cursor-move function redraws only while this int field of
+    // the window manager is non-zero (present sets it around its own cursor
+    // draw + flip, then clears it). 0 = no such gate (BEL).
+    int cursor_redraw_gate = 0;
 };
 
 // Picks the addresses for `build`; nullptr if there are none.

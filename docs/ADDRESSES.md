@@ -42,4 +42,5 @@ recognised by its return address.
 | side bar vtable; draw (+0x3C) | 0x6FB6C4; thunk 0x40CF81 → 0x609F40 | 0x69DE2C; 0x5F7D00 | 0x67AD50; 0x62FB80 | 0x5E6820; 0x492E90 |
 | cursor redraw on mouse move | call 0x637796 → 0x637390 | call 0x57A302 → 0x579EF0 | | |
 | frame present (window manager) | vtable 0x6FC7CC → 0x6371B0 | vtable 0x6918D4 → 0x579C90 | | |
+| cursor redraw gate (window manager field) | none | +0x68 (set by present around its cursor draw + flip) | | |
 | main menu setup / command | | | | call 0x4A62DE → 0x4A6650 / 0x4A6D10 (code 0x25 = 640x480) |

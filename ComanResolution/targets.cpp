@@ -76,6 +76,7 @@ const Target kBcd = {
     .side_vtable = 0x0069DE2C, .side_draw_fn = 0x005F7D00,
     .cursor_redraw = call_site(0x0057A302, 0x00579EF0),
     .present = vtable_slot(0x006918D4, 0x00579C90),
+    .cursor_redraw_gate = 0x68,  // cursor move 0x57A2FA: cmp [ecx+0x68], 0
 };
 
 // ---------------------------------------------------------------- BCD 1999

@@ -34,10 +34,22 @@ void __fastcall hook_redraw(void* windows, void* edx, int moved)
     redraw(windows, edx);
 }
 
+// In BCD only:
+// While present has its gate field set; outside it, present has just drawn the
+// cursor at its latest position into the frame, and a redraw would put a stale
+// background over it (the cursor vanished while moving fast).
+bool redraw_allowed(void* windows)
+{
+    const int gate = target().cursor_redraw_gate;
+    return gate == 0 || mem::field<int>(windows, gate) != 0;
+}
+
 void __fastcall hook_present(void* windows, void* edx)
 {
     g_present_orig(windows, edx);
-    if (g_pending) redraw(windows, edx);
+    if (!g_pending) return;
+    if (redraw_allowed(windows)) redraw(windows, edx);
+    else g_pending = false;
 }
 
 }  // namespace
